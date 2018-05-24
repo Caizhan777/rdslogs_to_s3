@@ -1,0 +1,14 @@
+$arrAggregateRating = array();
+// 		レーティング口コミ数を取得
+		$commentCount =$this->objView->datas['COMMENT_COUNT'];
+		
+		if(!empty($commentCount) && $commentCount >= 3){
+			$aggregateRating = array();
+			$aggregateRating['@type'] = 'AggregateRating';
+			$aggregateRating['bestRating'] = '5';
+			$aggregateRating['worstRating'] = '0';
+			$aggregateRating['ratingValue'] = $commentAggregate;
+			$aggregateRating['bestRating'] = $commentCount;
+			
+			array_push($arrAggregateRating, $aggregateRating);
+		}
